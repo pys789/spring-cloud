@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class RibbonConsumerApplication {
 
     @Bean
+    // 客户端负载均衡（启动多个服务提供者，客户端获取服务列表后，均衡访问）
     @LoadBalanced
     RestTemplate restTemplate() {
         return new RestTemplate();
