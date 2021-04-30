@@ -24,14 +24,14 @@ public class ConsumerController {
 
     @RequestMapping("ribbon-consumer")
     public String helloConsumer() {
-        ServiceInstance serviceInstance = loadBalancer.choose("hello-service");
-        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello";
 
         // 使用@LoadBalanced
-        //ResponseEntity<String> entity = restTemplate.getForEntity("http://hello-service/hello", String.class);
+        ResponseEntity<String> entity = restTemplate.getForEntity("http://hello-service/hello", String.class);
 
         // 自定义负载均衡
-        ResponseEntity<String> entity = restTemplate.getForEntity(url, String.class);
+        // ServiceInstance serviceInstance = loadBalancer.choose("hello-service");
+        // String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello";
+        // ResponseEntity<String> entity = restTemplate.getForEntity(url, String.class);
 
         return entity.getBody();
 
