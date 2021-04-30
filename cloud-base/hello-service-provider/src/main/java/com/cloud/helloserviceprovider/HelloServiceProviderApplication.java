@@ -13,6 +13,7 @@ public class HelloServiceProviderApplication {
     public static void main(String[] args) {
         //SpringApplication.run(HelloServiceProviderApplication.class, args);
         SpringApplicationBuilder builder = new SpringApplicationBuilder();
+        System.out.println("请输入端口号:");
         Scanner scanner = new Scanner(System.in);
         builder.properties("server.port=" + scanner.nextInt());
         builder.sources(HelloServiceProviderApplication.class);
